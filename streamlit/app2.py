@@ -24,11 +24,13 @@ with open(transformer_path, 'rb') as pt:
     transformer = pickle.load(pt) 
     transformer.set_output(transform="pandas")
     
-# import  data
-df = pd.read_csv('../datasets/train_pop_NaN.csv')
+# import dataset
+data_path = Path(__file__).parent / '../datasets/train_pop_NaN.csv'
+df = pd.read_csv(data_path)
 
 # import the planning area boundaries
-with open ('master_plan_boundaries.json', 'r') as jsonFile:
+master_plan_path = 'master_plan_boundaries.json'
+with open (master_plan_path, 'r') as jsonFile:
     town_borders = json.load(jsonFile)    
     
 
