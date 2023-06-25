@@ -29,7 +29,7 @@ data_path = Path(__file__).parent / '../datasets/train_pop_NaN.csv'
 df = pd.read_csv(data_path)
 
 # import the planning area boundaries
-master_plan_path = 'master_plan_boundaries.json'
+master_plan_path =  Path(__file__).parent / 'master_plan_boundaries.json'
 with open (master_plan_path, 'r') as jsonFile:
     town_borders = json.load(jsonFile)    
     
