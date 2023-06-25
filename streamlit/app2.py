@@ -9,14 +9,18 @@ import altair as alt
 from streamlit_folium import st_folium, folium_static
 import pickle
 
+from pathlib import Path
+
 # first load the model and transformer
 
 # load the train model
-with open('or_model2.pkl', 'rb') as oridge:
+model_path = Path(__file__).parent / 'or_model2.pkl'
+with open(model_path, 'rb') as oridge:
     model = pickle.load(oridge)
 
 # load the PowerTransformer
-with open('powertransformer.pkl', 'rb') as pt: 
+transformer_path = Path(__file__).parent / 'powertransformer.pkl'
+with open(transformer_path, 'rb') as pt: 
     transformer = pickle.load(pt) 
     transformer.set_output(transform="pandas")
     
